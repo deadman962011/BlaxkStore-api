@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+ h4 hello from add catigory view
+ br
+ br
+ .container
+  .row
+   .col-sm-offset-3.col-sm-9
+    form.form-inline( method="post")
+     .form-group
+      .col-sm-10
+       input.form-control(type='text' placeholder='catigory name'  name='catigoryNameI')
+     .form-group 
+       input.btn.btn-primary(type="submit", value="submit")
+  br
+  br
+  br
+  .row
+    if(catigories)
+     each catigory in catigories
+      .col-sm-3
+        .panel.panel-default
+           .panel-body
+            .col-sm-9
+             h4=catigory.CatigoryName
+              span   (
+               span=catigory.CatigoryProdsNum
+                 span )
+            .col-sm-3
+              a.btn.btn-danger(href=""+catigory._id) X

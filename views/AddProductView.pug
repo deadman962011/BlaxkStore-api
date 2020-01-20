@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  
+    .container
+       form.form-horizontal( method="post")
+        .form-group
+         .col-sm-3
+          label.form-label(for="ProdImagesI") product images:
+         .col-sm-9
+           ul.list-unstyled.list-inline
+            li.list-inline-item
+              a(href="AddImg") add new image
+            if(Images)
+             each image in Images
+               li.list-inline-item
+                img.img-responsive(src=""+image.item.imgSrc style='height:150px;')
+        .form-group
+         .col-sm-3
+          label.form-label(for='ProdNameI') product name:
+         .col-sm-6
+          input.form-control(type='text'  name='ProdNameI' required)
+        .form-group
+         .col-sm-3
+          label.form-label(for='ProdPriceI') product price:
+         .col-sm-6
+          input.form-control(type='text'  name='ProdPriceI' required)
+        .form-group
+         .col-sm-3
+          label.form-label(for='ProdSizeI') Product size:
+         .col-sm-6
+          input.form-control(type='text'  name='ProdSizeI' required)
+        .form-group
+         .col-sm-3
+          label.form-label(for='ProdRateI') 
+         .col-sm-6
+          select.form-control( name='ProdRateI' required)
+           option 1
+           option 2
+           option 3
+           option 4
+           option 5
+        .form-group
+         .col-sm-3
+          label.form-label(for='ProdBrandI') product brand:
+         .col-sm-6
+          input.form-control(type='text'  name='ProdBrandI' required)
+        .form-group
+         .col-sm-3
+          label.form-label(for='ProdCatigoryI') product catigory:
+         .col-sm-5
+          select.form-control(  name='ProdCatigoryI' required)
+           if(catigories)
+            each catigory in catigories 
+             option=catigory.CatigoryName
+         a.btn.btn-primary(href="/Dashboard/Catigory") Catigory
+        .form-group
+         .col-sm-3
+          label.form-label(for='ProdDescI') product descreption:
+         .col-sm-6
+          textarea.form-control(name='ProdDescI' rows='16'  required)
+        .form-group
+         .col-sm-offset-3.col-sm-3
+          input.btn.btn-primary(type='submit')
